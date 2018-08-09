@@ -4,10 +4,10 @@
 
 ## Effect Comparison
 In first step, we use morphological edge detection function to drop text rects in source image.
-![Diagram](images/RECT_RESULT.jpg)
+<img src="images/RECT_RESULT.jpg" width="50%" height="50%">
 
 And then, we use tess-two to identify Chinese characters and print them.
-![Diagram](images/OCR_RESULT.png)
+<img src="images/OCR_RESULT.png" width="50%" height="50%">
 
 ## Total Process Diagram
 This diagram is a dead-simple which described how to build an easy motion identification system.
