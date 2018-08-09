@@ -8,10 +8,11 @@ This diagram is a dead-simple which described how to build an easy motion identi
 
 ## Effect Comparison
 In first step, we use morphological edge detection function to drop text rects in source image.
-<img src="images/RECT_RESULT.jpg" width="50%" height="50%">
 
 And then, we use tess-two to identify Chinese characters and print them.
-<img src="images/OCR_RESULT.png" width="50%" height="50%">
+<img src="images/RECT_RESULT.jpg" width="30%" height="30%">
+
+<img src="images/OCR_RESULT.png" width="30%" height="30%">
 
 ## How to use tess-two in Android
 Add `implementation 'com.rmtheis:tess-two:9.0.0` in your app module gradle, and use tess-two like this.
@@ -23,9 +24,7 @@ Add `implementation 'com.rmtheis:tess-two:9.0.0` in your app module gradle, and 
       tessBaseAPI.end()
 
 ## How to use OpenCV(Native & JAVA) in Android with Android Studio
-> 0.   Android Studio 3.2 or latest
-> 1.   Kotlin 1.2.51 or latest
-> 2.   Android SDK 28 or latest
+Follow [this link](http://dkhoa.me/post/opencv_android_studio_ndk/) to build your app with OpenCV(NDK & Java).
 
 ## Use Native Function
 
