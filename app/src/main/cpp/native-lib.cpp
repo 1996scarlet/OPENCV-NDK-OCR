@@ -5,6 +5,8 @@
 
 #include <android/bitmap.h>
 #include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
 using namespace cv;
 using namespace std;
@@ -61,7 +63,7 @@ Java_ac_ict_humanmotion_ocr_MainActivity_selfEdge(
     dilate(binary, dilate1, element2);
 
     dilate(dilate1, dilate1, element2);
-//    dilate(dilate1, dilate1, element2);
+    dilate(dilate1, dilate1, element2);
 
     //5.腐蚀一次，去掉细节，表格线等。这里去掉的是竖直的线
     Mat erode1;
@@ -260,9 +262,24 @@ Java_ac_ict_humanmotion_ocr_MainActivity_selfRect(
 
     for (int i = 0; i < rects.size(); i++) {
         Point2f P[4];
-        rects[i].points(P);
+
+        RotatedRect rotated = rects[i];
+
+        rotated.points(P);
+
         for (int j = 0; j <= 3; j++) {
             line(temp, P[j], P[(j + 1) % 4], Scalar(0, 255, 0), 2);
+        }
+
+//        Rect tto = rotated.boundingRect();
+//        Mat cto = temp(tto);
+
+        vector<int> compression_params;
+        compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+        compression_params.push_back(100);
+
+        if (i == 4){
+            // imwrite("/storage/emulated/0/tessdata/05.jpg", temp(rotated.boundingRect()), compression_params);
         }
     }
 
