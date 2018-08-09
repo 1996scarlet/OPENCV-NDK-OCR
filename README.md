@@ -7,11 +7,11 @@ In first step, we use morphological edge detection function to drop text rects i
 ![Diagram](images/RECT_RESULT.jpg)
 
 And then, we use tess-two to identify Chinese characters and print them.
-![Diagram](images/OCR_RESULT.png =200x)
+![Diagram](images/OCR_RESULT.png)
 
 ## Total Process Diagram
 This diagram is a dead-simple which described how to build an easy motion identification system.
-![Diagram](imgs/diagram.png =200x)
+![Diagram](imgs/diagram.png)
 
 ## How to use tess-two in Android
 > 0.   Android Studio 3.2 or latest
