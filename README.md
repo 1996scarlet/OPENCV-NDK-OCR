@@ -2,6 +2,10 @@
 * Android ocr with OpenCV and tess-two
 * This project is a dead-simple which described how to build an easy offline OCR system.
 
+## Total Process Diagram
+This diagram is a dead-simple which described how to build an easy motion identification system.
+![Diagram](imgs/diagram.png)
+
 ## Effect Comparison
 In first step, we use morphological edge detection function to drop text rects in source image.
 <img src="images/RECT_RESULT.jpg" width="50%" height="50%">
@@ -9,14 +13,14 @@ In first step, we use morphological edge detection function to drop text rects i
 And then, we use tess-two to identify Chinese characters and print them.
 <img src="images/OCR_RESULT.png" width="50%" height="50%">
 
-## Total Process Diagram
-This diagram is a dead-simple which described how to build an easy motion identification system.
-![Diagram](imgs/diagram.png)
-
 ## How to use tess-two in Android
-> 0.   Android Studio 3.2 or latest
-> 1.   Kotlin 1.2.51 or latest
-> 2.   Android SDK 28 or latest
+Add `implementation 'com.rmtheis:tess-two:9.0.0` in your app module gradle, and use tess-two like this.
+
+      val tessBaseAPI = TessBaseAPI()
+      tessBaseAPI.init("/storage/emulated/0/", "chi_sim")
+      tessBaseAPI.setImage(src)
+      println(tessBaseAPI.utF8Text)
+      tessBaseAPI.end()
 
 ## How to use OpenCV(Native & JAVA) in Android with Android Studio
 > 0.   Android Studio 3.2 or latest
