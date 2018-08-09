@@ -1,6 +1,6 @@
 # OPENCV-NDK-OCR
 * Android ocr with OpenCV and tess-two
-* This project is a dead-simple which described how to build an easy offline OCR system.
+* This project is a dead-simple which described how to build an easy off-line OCR system.
 
 ## Total Process Diagram
 This diagram is a dead-simple which described how to build an easy motion identification system.
