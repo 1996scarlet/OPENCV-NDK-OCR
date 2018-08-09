@@ -1,18 +1,16 @@
 # OPENCV-NDK-OCR
-android ocr with tess-two
+android ocr with OpenCV and tess-two
+This project is a dead-simple which described how to build an easy offline OCR system.
 
-## What is this
-Due to the lower version of the official open source apk, and the official new version of the APK does not provide source code.
-So I wrote a new open source demo.
+## Effect Comparison
 
-## 
+![Diagram](imgs/diagram.png)
+![Diagram](imgs/diagram.png)
+![Diagram](imgs/diagram.png)
 
-## Usage
-> 0.   Android Studio 3.2 or latest
-> 1.   Kotlin 1.2.51 or latest
-> 2.   Android SDK 28 or latest
-> 3.   You Android phone kernal version required 21 or above
-> 4.   Android Jetpack 1.0.0-beta3 or latest
+## Total Process Diagram
+This diagram is a dead-simple which described how to build an easy motion identification system.
+![Diagram](imgs/diagram.png)
 
 ## How to use tess-two in Android
 > 0.   Android Studio 3.2 or latest
@@ -24,7 +22,11 @@ So I wrote a new open source demo.
 > 1.   Kotlin 1.2.51 or latest
 > 2.   Android SDK 28 or latest
 
-##
+## Use Native Function
+
+## Use Java Function
+
+## Crop Mat with RotatedRect
 
 ## Cautions
 > 0.   Please give this app bluetooth permission
@@ -41,3 +43,10 @@ The project dependences are as follows.
 * [RxJava2](https://github.com/ReactiveX/RxJava) to make HTTP request and response async.
 * [Retrofit2](https://github.com/square/retrofit) to build local HTTP function interface.
 * [GraphView](https://github.com/jjoe64/GraphView) to show real-time data in chart.
+
+## Usage
+> 0.   Android Studio 3.2 or latest
+> 1.   Kotlin 1.2.51 or latest
+> 2.   Android SDK 28 or latest
+> 3.   You Android phone kernal version required 21 or above
+> 4.   Android Jetpack 1.0.0-beta3 or latest
