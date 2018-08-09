@@ -7,12 +7,10 @@ This diagram is a dead-simple which described how to build an easy motion identi
 ![Diagram](imgs/diagram.png)
 
 ## Effect Comparison
-In first step, we use morphological edge detection function to drop text rects in source image.
-
-And then, we use tess-two to identify Chinese characters and print them.
-<img src="images/RECT_RESULT.jpg" width="30%" height="30%">
-
-<img src="images/OCR_RESULT.png" width="30%" height="30%">
+* In first step, we use morphological edge detection function to drop text rects in source image.
+* And then, we use tess-two to identify Chinese characters and print them.
+<img src="images/RECT_RESULT.jpg" width="50%" height="50%">
+<img src="images/OCR_RESULT.png" width="50%" height="50%">
 
 ## How to use tess-two in Android
 Add `implementation 'com.rmtheis:tess-two:9.0.0` in your app module gradle, and use tess-two like this.
