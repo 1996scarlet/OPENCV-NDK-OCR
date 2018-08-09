@@ -22,33 +22,40 @@ Add `implementation 'com.rmtheis:tess-two:9.0.0` in your app module gradle, and 
       tessBaseAPI.end()
 
 ## How to use OpenCV(Native & JAVA) in Android with Android Studio
-Follow [this link](http://dkhoa.me/post/opencv_android_studio_ndk/) to build your app with OpenCV(NDK & Java).
+* Follow [this link](http://dkhoa.me/post/opencv_android_studio_ndk/) to build your app with OpenCV(NDK & Java).
+* Don't forget to link `jnigraphics` in `Cmake->target_link_libraries`
 
 ## Use Native Function
+The native function are in the `native-lib.cpp`.
+
+    external fun selfBinary(bitmap: Any) //gary and sobel and binary
+    external fun selfDilate(bitmap: Any, p1: Int = 24, p2: Int = 3) //Dilate
+    external fun selfErode(bitmap: Any, p1: Int = 30, p2: Int = 9) //Erode
+    external fun selfRect(bitmap: Any) //Draw rects
 
 ## Use Java Function
+Java OpenCV functions are easy to use, but it is hard to corp Mat.
+
+    val temp = Mat()
+            
+    cvtColor(srcMat, temp, COLOR_RGBA2GRAY)
+    Sobel(temp, temp, CV_8U, 1, 0)
+    threshold(temp, temp, 0.0, 255.0, THRESH_OTSU + THRESH_BINARY)
+
+    val element1 = getStructuringElement(MORPH_RECT, Size(30.0, 9.0))
+    val element2 = getStructuringElement(MORPH_RECT, Size(24.0, 3.0))
+
+    dilate(temp, temp, element2)
+    dilate(temp, temp, element2)
+
+    erode(temp, temp, element1) // optional
+
+    dilate(temp, temp, element2)
+    dilate(temp, temp, element2)
 
 ## Crop Mat with RotatedRect
+* Follow [this link](https://blog.csdn.net/pretender05/article/details/52540513) to crop Mat.
 
 ## Cautions
-> 0.   Please give this app bluetooth permission
-> 1.   You may need to pair Lpms-B before open the app
-
-## Response Data Type
-* In Android source code, we use Kotlin `MutableList<LpmsData>` to save temp result.
-* When the HTTP request is going to launch, we use `GSON.toJson()` function to convert temp result to formatted string.
-* If you don't know how to parse JSON or unfamiliar with it, please check [JSON.org](http://www.json.org/).
-
-## Project Dependences
-The project dependences are as follows.
-* [OKHTTP3](https://github.com/square/okhttp) to replace Android default HTTP client.
-* [RxJava2](https://github.com/ReactiveX/RxJava) to make HTTP request and response async.
-* [Retrofit2](https://github.com/square/retrofit) to build local HTTP function interface.
-* [GraphView](https://github.com/jjoe64/GraphView) to show real-time data in chart.
-
-## Usage
-> 0.   Android Studio 3.2 or latest
-> 1.   Kotlin 1.2.51 or latest
-> 2.   Android SDK 28 or latest
-> 3.   You Android phone kernal version required 21 or above
-> 4.   Android Jetpack 1.0.0-beta3 or latest
+> 0.   Please give this app `WRITE_EXTERNAL_STORAGE` permission
+> 1.   You may need to copy tess data to `/storage/emulated/0/tessdata`
