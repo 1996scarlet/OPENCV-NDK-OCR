@@ -1,12 +1,13 @@
 # OPENCV-NDK-OCR
-android ocr with OpenCV and tess-two
-This project is a dead-simple which described how to build an easy offline OCR system.
+* Android ocr with OpenCV and tess-two
+* This project is a dead-simple which described how to build an easy offline OCR system.
 
 ## Effect Comparison
+In first step, we use morphological edge detection function to drop text rects in source image.
+![Diagram](images/RECT_RESULT.jpg)
 
-![Diagram](imgs/diagram.png)
-![Diagram](imgs/diagram.png)
-![Diagram](imgs/diagram.png)
+And then, we use tess-two to identify Chinese characters and print them.
+![Diagram](images/OCR_RESULT.png)
 
 ## Total Process Diagram
 This diagram is a dead-simple which described how to build an easy motion identification system.
