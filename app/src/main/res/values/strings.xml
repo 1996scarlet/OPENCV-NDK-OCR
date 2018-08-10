@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OPENCV-NDK-OCR</string>
+    <string name="capture">Capture</string>
 </resources>
