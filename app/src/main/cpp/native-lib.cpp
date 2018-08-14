@@ -278,10 +278,56 @@ Java_ac_ict_humanmotion_ocr_MainActivity_selfRect(
         compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
         compression_params.push_back(100);
 
-        if (i == 4){
+        if (i == 4) {
             // imwrite("/storage/emulated/0/tessdata/05.jpg", temp(rotated.boundingRect()), compression_params);
         }
     }
 
     AndroidBitmap_unlockPixels(env, bitmap);
+}
+
+extern "C" JNIEXPORT void
+JNICALL
+Java_ac_ict_humanmotion_ocr_CVCamera_CameraActivity_selfBinary(
+        JNIEnv *env,
+        jobject obj,
+        jlong addrMat,
+        jlong addrNewMat) {
+
+    Mat &mat = *(Mat *) addrMat;
+    Mat &newMat = *(Mat *) addrNewMat;
+
+    cvtColor(mat, newMat, COLOR_RGBA2GRAY);
+
+    Mat outimgX, outimgY, outXY;
+    Sobel(newMat, outimgX, CV_8U, 1, 0);
+    Sobel(newMat, outimgY, CV_8U, 0, 1);
+    addWeighted(outimgX, 0.5, outimgY, 0.5, 0, outXY);
+
+    newMat = outXY;
+
+//    Mat &img = *(Mat *) mat_address;
+//    threshold(img, img, 0, 255, THRESH_OTSU + THRESH_BINARY);
+
+//    Mat &mat = *(Mat *) mat_address;
+//    Mat &newMat = *(Mat *) addrNewMat;
+//
+//    newMat.create(mat.rows, mat.rows, mat.type());
+//    Mat out;
+//    cvtColor(img, img, COLOR_RGBA2GRAY);
+
+//    Mat outimgX, outimgY, outXY;
+//    Sobel(out, outimgX, CV_8U, 1, 0);
+//    Sobel(out, outimgY, CV_8U, 0, 1);
+//    addWeighted(outimgX, 0.5, outimgY, 0.5, 0, outXY);
+//
+//    cvtColor(outXY, img, COLOR_GRAY2RGBA);
+
+//    uchar *ptr = img.ptr(0);
+//    uchar *outPtr = outXY.ptr(0);
+//    for (int i = 0; i < img.rows * img.cols; ++i) {
+//        ptr[4 * i + 0] = outPtr[I];
+//        ptr[4 * i + 1] = outPtr[I];
+//        ptr[4 * i + 2] = outPtr[I];
+//    }
 }

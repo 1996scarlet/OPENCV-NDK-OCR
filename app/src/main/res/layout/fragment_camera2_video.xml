@@ -26,16 +26,6 @@
             android:layout_gravity="center"
             android:text="@string/record" />
 
-        <ImageButton
-            android:id="@+id/info"
-            style="@android:style/Widget.Material.Light.Button.Borderless"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|end"
-            android:contentDescription="@string/description_info"
-            android:padding="@dimen/button_padding"
-            android:src="@android:drawable/ic_dialog_info" />
-
     </FrameLayout>
 
 </RelativeLayout>

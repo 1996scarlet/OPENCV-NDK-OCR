@@ -1,7 +1,6 @@
 package ac.ict.humanmotion.ocr
 
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.content.Context
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.content.res.Configuration
@@ -71,7 +70,9 @@ class Camera2VideoFragment : Fragment(), View.OnClickListener,
 
         override fun onSurfaceTextureDestroyed(surfaceTexture: SurfaceTexture) = true
 
-        override fun onSurfaceTextureUpdated(surfaceTexture: SurfaceTexture) = Unit
+        override fun onSurfaceTextureUpdated(surfaceTexture: SurfaceTexture) {
+            println(surfaceTexture.timestamp)
+        }
 
     }
 
@@ -180,7 +181,6 @@ class Camera2VideoFragment : Fragment(), View.OnClickListener,
         videoButton = view.findViewById<Button>(R.id.video).also {
             it.setOnClickListener(this)
         }
-        view.findViewById<View>(R.id.info).setOnClickListener(this)
     }
 
     override fun onResume() {
@@ -207,14 +207,6 @@ class Camera2VideoFragment : Fragment(), View.OnClickListener,
     override fun onClick(view: View) {
         when (view.id) {
             R.id.video -> if (isRecordingVideo) stopRecordingVideo() else startRecordingVideo()
-            R.id.info -> {
-                if (activity != null) {
-                    AlertDialog.Builder(activity)
-                            .setMessage("intro_message")
-                            .setPositiveButton(android.R.string.ok, null)
-                            .show()
-                }
-            }
         }
     }
 
