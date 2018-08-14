@@ -78,6 +78,16 @@ Java OpenCV functions are easy to use, but it is hard to corp Mat.
                 }
             }
 
+* Config your `CmakeList.txt` add includes and libraries.
+
+      add_library(avcodec SHARED IMPORTED)
+      set_target_properties(avcodec  PROPERTIES IMPORTED_LOCATION
+      ../../../../libs/${ANDROID_ABI}/libavcodec.so)
+      
+      ...
+      
+      target_link_libraries( ... avcodec ...)
+
 ## Cautions
 > 0.   Please give this app `WRITE_EXTERNAL_STORAGE` permission
 > 1.   You may need to copy tess data to `/storage/emulated/0/tessdata`
