@@ -56,6 +56,28 @@ Java OpenCV functions are easy to use, but it is hard to corp Mat.
 ## Crop Mat with RotatedRect
 * Follow [this link](https://blog.csdn.net/pretender05/article/details/52540513) to crop Mat.
 
+## How to use FFMPEG in Android Studio
+* Pre-build lib can be found at [here](https://github.com/wang-bin/avbuild).
+* Copy them to your jnilibs dir.
+* In app-build.gradle add as blow.
+
+            android {
+                   ...
+                defaultConfig {
+                ...
+                    externalNativeBuild {
+                        ndk {
+                            abiFilters 'armeabi-v7a', 'arm64-v8a'
+                        }
+                    }
+                }
+                sourceSets {
+                    main {
+                        jniLibs.srcDirs = ['libs']
+                    }
+                }
+            }
+
 ## Cautions
 > 0.   Please give this app `WRITE_EXTERNAL_STORAGE` permission
 > 1.   You may need to copy tess data to `/storage/emulated/0/tessdata`
