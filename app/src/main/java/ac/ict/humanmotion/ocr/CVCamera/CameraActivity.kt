@@ -36,16 +36,15 @@ class CameraActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
         setContentView(R.layout.activity_camera)
 
         cameraView.setCvCameraViewListener(this)
+
+        println(avformatInfo())
     }
 
     override fun onResume() {
         super.onResume()
         if (!OpenCVLoader.initDebug()) {
             println("FAIL")
-        } else {
-            println("SUCCESS")
-            cameraView.enableView()
-        }
+        } else cameraView.enableView()
     }
 
     override fun onPause() {
@@ -63,10 +62,17 @@ class CameraActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
     }
 
     external fun selfBinary(old_addr: Long, new_addr: Long)
+    external fun avformatInfo(): String
 
     companion object {
         init {
             System.loadLibrary("native-lib")
+            System.loadLibrary("avcodec")
+            System.loadLibrary("avfilter")
+            System.loadLibrary("avformat")
+            System.loadLibrary("avutil")
+            System.loadLibrary("swresample")
+            System.loadLibrary("swscale")
         }
     }
 }

@@ -11,6 +11,12 @@
 using namespace cv;
 using namespace std;
 
+extern "C" {
+#include <libavcodec/avcodec.h>
+#include <libavformat/avformat.h>
+#include <libavfilter/avfilter.h>
+}
+
 extern "C" JNIEXPORT jstring
 
 JNICALL
@@ -305,4 +311,14 @@ Java_ac_ict_humanmotion_ocr_CVCamera_CameraActivity_selfBinary(
 //    addWeighted(outimgX, 0.5, outimgY, 0.5, 0, outXY);
 //
 //    newMat = outXY;
+}
+
+extern "C" JNIEXPORT jstring
+JNICALL
+Java_ac_ict_humanmotion_ocr_CVCamera_CameraActivity_avformatInfo(
+        JNIEnv *env,
+        jobject obj) {
+
+
+    return env->NewStringUTF("OJBK");
 }
