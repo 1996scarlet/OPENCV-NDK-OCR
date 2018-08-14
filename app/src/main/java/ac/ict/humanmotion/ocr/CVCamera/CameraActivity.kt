@@ -16,11 +16,9 @@ class CameraActivity : AppCompatActivity(), CameraBridgeViewBase.CvCameraViewLis
 
     override fun onCameraFrame(inputFrame: CameraBridgeViewBase.CvCameraViewFrame?): Mat {
         inputFrame?.rgba()?.let {
-            //            mRgba = it
             selfBinary(it.nativeObjAddr, mRgba.nativeObjAddr)
         }
 
-//        Imgproc.cvtColor(inputFrame?.gray(), mRgba, Imgproc.COLOR_GRAY2RGBA, 4)
         return mRgba
     }
 
